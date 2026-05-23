@@ -729,6 +729,30 @@ h1, h2, h3 {
     padding-top: 0.5rem;
   }
 
+  /* Make hero layout stack and scale images nicely on medium/small screens */
+  .hero .container {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .hero-copy {
+    text-align: left;
+  }
+
+  .hero-image {
+    min-height: 260px;
+    display: block;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 18px;
+  }
+
   .product-image-block {
     min-width: 0;
   }
@@ -739,6 +763,64 @@ h1, h2, h3 {
 
   .gallery-item {
     max-width: 100%;
+  }
+  
+  /* Stack product image above product info on smaller screens */
+  .product-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .product-image-block {
+    order: 1;
+    width: 100%;
+    max-height: 480px;
+    border-radius: 14px;
+  }
+
+  .product-image-block img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+
+  .product-info {
+    order: 2;
+  }
+}
+
+@media (max-width: 760px) {
+  /* Tweak hero text sizing and center alignment on small phones */
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-copy .eyebrow {
+    letter-spacing: 0.12em;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+  }
+
+  /* Make contact card more compact and buttons full-width */
+  .contact-card {
+    border-radius: 18px;
+    padding: 1.5rem;
+  }
+
+  .contact-card .btn {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  .contact-card .btn + .btn {
+    margin-top: 0.75rem;
   }
 }
 
